@@ -4,7 +4,10 @@ theme: "blox"
 languageCode: "en"
 defaultContentLanguage: "en"
 enableRobotsTXT: true
-paginate: 10
+pagination.pagerSize: 10
 buildDrafts: true
 googleAnalytics: ""
 canonifyURLs: true
+build:
+  writeStats: true
+

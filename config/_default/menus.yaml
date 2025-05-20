@@ -1,0 +1,31 @@
+main:
+  - name: "Home"
+    url: "/"
+    weight: 1
+  - name: "Our Technologies"
+    url: "/solutions/"
+    weight: 2
+  - name: "Application Areas"
+    url: "/about/"
+    weight: 3
+  - name: "Grounded Vision"
+    url: "/contact/"
+    weight: 4
+  - name: "About"
+    url: "/about/"
+    weight: 5
+  - name: "Contact"
+    url: "/contact/"
+    weight: 6
+  - name: "Blog"
+    url: "/blog/"
+    weight: 7
+  # - name: "Privacy Policy"
+  #   url: "/privacy-policy/"
+  #   weight: 8
+  # - name: "Terms of Service"
+  #   url: "/terms-of-service/"
+  #   weight: 9
+  # - name: "Sitemap"
+  #   url: "/sitemap.xml"
+  #   weight: 10

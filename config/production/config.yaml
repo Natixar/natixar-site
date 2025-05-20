@@ -1,0 +1,10 @@
+baseURL: "https://www.natixar.com"
+title: "Natixar"
+theme: "blox"
+languageCode: "en"
+defaultContentLanguage: "en"
+enableRobotsTXT: true
+paginate: 10
+buildDrafts: true
+googleAnalytics: ""
+canonifyURLs: true

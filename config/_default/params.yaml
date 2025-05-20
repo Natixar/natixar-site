@@ -1,0 +1,14 @@
+branding:
+  logo: "/images/logo-natixar.png"
+  logo_dark: "/images/logo-natixar-white.png"
+  favicon: "/images/favicon.png"
+  site_title: "Natixar"
+  site_tagline: "Traçabilité. ESG. Excellence."
+
+footer:
+  copyright: "© 2025 Natixar"
+  built_with: true
+
+theme:
+  palette: "system"  # options: light, dark, system
+  font: "sans"       # options: sans, serif

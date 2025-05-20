@@ -1,0 +1,30 @@
+fr:
+  languageName: Français
+  weight: 1
+  contentDir: content/fr
+  params:
+    description: "Site officiel de Natixar - traçabilité & ESG"
+en:
+  languageName: English
+  weight: 2
+  contentDir: content/en
+  params:
+    description: "Official Natixar website - traceability & ESG"
+sp:
+  languageName: Español
+  weight: 3
+  contentDir: content/sp
+  params:
+    description: "Sitio oficial de Natixar - trazabilidad & ESG"
+pt:
+  languageName: Português
+  weight: 4
+  contentDir: content/pt
+  params:
+    description: "Site oficial da Natixar - rastreabilidade & ESG"
+zh:
+  languageName: 中文
+  weight: 5
+  contentDir: content/zh
+  params:
+    description: "Natixar官方网站 - 可追溯性和ESG"

@@ -1,18 +1,22 @@
+# Navigation Links
+#   To link a page section, specify the URL as a hash `/#` followed by the `id` of the section.
+#   The `weight` parameter defines the order that the links will appear in.
+
 main:
   - name: "Home"
-    url: "/"
+    url: "/#top"
     weight: 1
   - name: "Our Technologies"
-    url: "/solutions/"
+    url: "/#solutions"
     weight: 2
   - name: "Application Areas"
-    url: "/about/"
+    url: "/#applications"
     weight: 3
-  - name: "Grounded Vision"
-    url: "/contact/"
+  - name: "Field-Based Insights"
+    url: "/#vision"
     weight: 4
   - name: "About"
-    url: "/about/"
+    url: "/#about"
     weight: 5
   - name: "Contact"
     url: "/contact/"

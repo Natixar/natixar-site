@@ -5,7 +5,7 @@ type: landing
 
 design:
   # Default section spacing
-  spacing: "6rem"
+  spacing: "2rem"
 
 sections:
   - block: hero
@@ -26,24 +26,19 @@ sections:
           filename: bg-triangles.svg
           filters:
             brightness: 0.5
-  # - block: features
-  #   id: solutions
-  #   content:
-  #     title: Our Technologies
-  #     text: 'A modular platform to build trust across complex supply chains:'
-  #     items:
-  #       - name: Real-time carbon accounting
-  #         icon: clock
-  #         #description: 
-  #       - name: Blockchain traceability & digital product passports
-  #         icon: magnifying-glass 
-  #       - name: Multispectral and geospatial satellite monitoring
-  #         icon: globe-alt
-  #       - name: AI modeling for emission reduction
-  #         icon: sparkles 
-  #   design:
-  #     # Section background color (CSS class)
-  #     css_class: "bg-green-100 dark:bg-green-900"
+  - block: features
+    content:
+      # title: Our Technologies
+      # text: 'A modular platform to build trust across complex supply chains:'
+      items:
+        - name: "🔁 Blockchain"
+          #icon: clock
+          #description: 
+        - name: "🛰️ Satellite monitoring"
+        - name: "♻️ Decarbonization"
+    design:
+      # Section background color (CSS class)
+      css_class: "bg-green-100 dark:bg-green-900"
   - block: cta-image-paragraph
     id: solutions
     content:
@@ -57,14 +52,17 @@ sections:
             - Blockchain traceability & digital product passports
             - Multispectral and geospatial satellite monitoring
             - AI modeling for emission reduction
+            - Physical & digital material fingerprinting
            # Upload image to `assets/media/` and reference the filename here
-          image: build-website.png
+          image: technology.jpg
           button:
             text: Learn more
             url: /blog/
     design:
       # Section background color (CSS class)
-      css_class: "bg-gray-100 dark:bg-gray-900"
+      #css_class: "bg-gray-100 dark:bg-gray-900"
+      background:
+        color: "rgb(132, 164, 180)"
       spacing:
         padding: ['6rem', '0', '0px', '0']
   - block: cta-image-left-paragraph
@@ -79,18 +77,19 @@ sections:
             - "🪙 Precious metals (gold, platinum, silver…)"
             - "🌸 Perfumery & luxury products – traceability and sustainability of rare ingredients"
           # Upload image to `assets/media/` and reference the filename here
-          image: coffee.jpg
+          image: luxury.png
           # button:
           #   text: "Join Discord"
           #   url: https://discord.gg/z8wNYzb
     design:
       # Section background color (CSS class)
       #css_class: "bg-green-100 dark:bg-green-900"
-      background:
-        color: "rgb(176, 218, 209)"
+      # background:
+      #   color: "rgb(176, 218, 209)"
       spacing:
         padding: ['0px', '0', '0px', '0']
   - block: cta-card
+    id: vision 
     content:
       title: "We develop operational solutions tailored to each industry, need, and geography."
       text: "Natixar's approach is based on data automation, system interoperability, transparency, and regulatory foresight."

@@ -17,6 +17,7 @@ marketing:
     description: 'ESG & traceability solutions in real time'
     twitter: ''
   analytics:
+    google_tag_manager: ''  # Google Tag Manager ID
     google_analytics: ''
     baidu_tongji: ''
     plausible: ''

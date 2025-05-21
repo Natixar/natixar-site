@@ -30,23 +30,6 @@ bio: |
   industrial innovation, and blockchain-based traceability. She is the co-founder and president of Natixar, 
   a startup focused on enhancing transparency and ESG compliance in mineral supply chains through digital technologies.
 
-body: |
-  Svetlana Cranga is a French-Moldovan entrepreneur and sustainability expert specializing in critical minerals, 
-  industrial innovation, and blockchain-based traceability. She is the co-founder and president of Natixar, 
-  a startup focused on enhancing transparency and ESG compliance in mineral supply chains through digital technologies.
-
-  Previously, Cranga served as Director of Sustainable Development at Groupe ADF, where she led decarbonization 
-  initiatives for industrial clients. Her earlier roles include Export Area Manager at Fives Pillard, overseeing 
-  markets in EMEA and North America.
-
-  Cranga holds dual Master’s degrees: one in International Business (Asia-Pacific focus) from the University of 
-  La Rochelle, and another in Innovation Management and Intellectual Property from the University of Lyon II.  
-  She is also a French Foreign Trade Advisor (CCEF) and actively participates in industry associations such as 
-  Evolen and Club CO₂.
-
-  Her professional focus lies at the intersection of sustainability, innovation, and international collaboration, 
-  particularly in the mining and energy sectors.
-
 # Social Networking
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
@@ -72,6 +55,18 @@ highlight_name: true
 website: ""
 ---
 
-Chien Shiung Wu is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include
-distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops
-self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+Svetlana Cranga is a French-Moldovan entrepreneur and sustainability expert specializing in critical minerals, 
+industrial innovation, and blockchain-based traceability. She is the co-founder and president of Natixar, 
+a startup focused on enhancing transparency and ESG compliance in mineral supply chains through digital technologies.
+
+Previously, Cranga served as Director of Sustainable Development at Groupe ADF, where she led decarbonization 
+initiatives for industrial clients. Her earlier roles include Export Area Manager at Fives Pillard, overseeing 
+markets in EMEA and North America.
+
+Cranga holds dual Master’s degrees: one in International Business (Asia-Pacific focus) from the University of 
+La Rochelle, and another in Innovation Management and Intellectual Property from the University of Lyon II.  
+She is also a French Foreign Trade Advisor (CCEF) and actively participates in industry associations such as 
+Evolen and Club CO₂.
+
+Her professional focus lies at the intersection of sustainability, innovation, and international collaboration, 
+particularly in the mining and energy sectors.

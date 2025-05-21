@@ -30,6 +30,11 @@ bio: |
   industrial innovation, and blockchain-based traceability. She is the co-founder and president of Natixar, 
   a startup focused on enhancing transparency and ESG compliance in mineral supply chains through digital technologies.
 
+body: |
+  Svetlana Cranga is a French-Moldovan entrepreneur and sustainability expert specializing in critical minerals, 
+  industrial innovation, and blockchain-based traceability. She is the co-founder and president of Natixar, 
+  a startup focused on enhancing transparency and ESG compliance in mineral supply chains through digital technologies.
+
   Previously, Cranga served as Director of Sustainable Development at Groupe ADF, where she led decarbonization 
   initiatives for industrial clients. Her earlier roles include Export Area Manager at Fives Pillard, overseeing 
   markets in EMEA and North America.
@@ -40,7 +45,7 @@ bio: |
   Evolen and Club CO₂.
 
   Her professional focus lies at the intersection of sustainability, innovation, and international collaboration, 
-  particularly in the mining and energy sectors.([LinkedIn][1])
+  particularly in the mining and energy sectors.
 
 # Social Networking
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
@@ -51,11 +56,11 @@ profiles:
   - icon: brands/x
     url: https://x.com/Svetly2711
   - icon: brands/linkedin
-    url: https://www.linkedin.com/
+    url: https://www.linkedin.com/in/svetlana-cranga-74570821/
   # Link to a PDF of your resume/CV - upload it to `static/uploads/resume.pdf`
-  - icon: academicons/cv
-    url: uploads/resume.pdf
-    label: Download my resume
+  # - icon: academicons/cv
+  #   url: uploads/resume.pdf
+  #   label: Download my resume
   - icon: rss
     url: ./post/index.xml
     label: Subscribe to my blog via RSS feed

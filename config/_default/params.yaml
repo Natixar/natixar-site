@@ -44,8 +44,8 @@ header:
       url: "https://hugoblox.com/templates/"
     show_search: true
     show_theme_chooser: true
-    show_translations: false
-    hide_language_name: true
+    show_translations: true
+    hide_language_name: false
 
 # Site footer
 footer:

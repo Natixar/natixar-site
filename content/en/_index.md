@@ -65,7 +65,9 @@ sections:
     design:
       # Section background color (CSS class)
       css_class: "bg-gray-100 dark:bg-gray-900"
-  - block: cta-image-paragraph
+      spacing:
+        padding: ['6rem', '0', '0px', '0']
+  - block: cta-image-left-paragraph
     id: applications 
     content:
       items:
@@ -83,7 +85,11 @@ sections:
           #   url: https://discord.gg/z8wNYzb
     design:
       # Section background color (CSS class)
-      css_class: "bg-green-100 dark:bg-green-900"
+      #css_class: "bg-green-100 dark:bg-green-900"
+      background:
+        color: "rgb(176, 218, 209)"
+      spacing:
+        padding: ['0px', '0', '0px', '0']
   - block: cta-card
     content:
       title: "We develop operational solutions tailored to each industry, need, and geography."

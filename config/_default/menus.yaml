@@ -15,9 +15,9 @@ main:
   - name: "Field-Based Insights"
     url: "/#vision"
     weight: 4
-  - name: "About"
-    url: "/#about"
-    weight: 5
+  # - name: "About"
+  #   url: "/about/"
+  #   weight: 5
   - name: "Contact"
     url: "/contact/"
     weight: 6

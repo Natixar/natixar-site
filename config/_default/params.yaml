@@ -1,14 +1,58 @@
-branding:
-  logo: "/images/logo-natixar.png"
-  logo_dark: "/images/logo-natixar-white.png"
-  favicon: "/images/favicon.png"
-  site_title: "Natixar"
-  site_tagline: "Traçabilité. ESG. Excellence."
+# SITE SETUP
+# Guide: https://docs.hugoblox.com/tutorial/
+# Documentation: https://docs.hugoblox.com/
+# This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
+# Appearance
+appearance:
+  mode: light
+  color: indigo
+
+# SEO
+marketing:
+  seo:
+    site_type: OnlineBusiness
+    local_business_type: ''
+    org_name: 'Natixar'
+    description: 'ESG & traceability solutions in real time'
+    twitter: ''
+  analytics:
+    google_analytics: ''
+    baidu_tongji: ''
+    plausible: ''
+    fathom: ''
+    pirsch: ''
+  verification:
+    google: ''
+    baidu: ''
+
+# Site header
+header:
+  navbar:
+    enable: true
+    blox: "navbar"
+    align: "center"
+    fixed_to_top: true
+    logo:
+      text: ""
+      # Logo filename in `assets/media/` folder
+      filename: "logo_natixxar_black.png"
+    button:
+      enable: false
+      text: "Get Started"
+      url: "https://hugoblox.com/templates/"
+    show_search: true
+    show_theme_chooser: true
+    show_translations: false
+    hide_language_name: true
+
+# Site footer
 footer:
-  copyright: "© 2025 Natixar"
-  built_with: true
+  copyright:
+    notice: '© {year} Natixar'
+    built_with: true
 
-theme:
-  palette: "system"  # options: light, dark, system
-  font: "sans"       # options: sans, serif
+# Localization
+locale:
+  date_format: 'Jan 2, 2006'
+  time_format: '3:04 PM'

@@ -38,7 +38,7 @@ fr:
     - name: "Blog" # Blog
       url: "/blog/"
       weight: 7
-sp:
+es:
   languageName: Español
   weight: 3
   contentDir: content/sp

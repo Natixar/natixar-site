@@ -1,5 +1,5 @@
 ---
-title: 'Home'
+title: 'Inicio'
 date: 2025-05-20
 type: landing
 
@@ -11,8 +11,8 @@ sections:
   - block: hero
     id: top
     content:
-      title: Every atom has a story. We make it legible.
-      text: 'Track your critical raw materials with unprecedented precision: blockchain, satellite data, material fingerprinting, carbon analysis.'
+      title: Cada átomo tiene una historia. Nosotros la hacemos legible.
+      text: 'Rastree sus materias primas críticas con una precisión sin precedentes: blockchain, datos satelitales, huellas de materiales, análisis de carbono.'
     design:
       spacing:
         padding: [0, 0, 0, 0]
@@ -34,8 +34,8 @@ sections:
         - name: "🔁 Blockchain"
           #icon: clock
           #description: 
-        - name: "🛰️ Satellite monitoring"
-        - name: "♻️ Decarbonization"
+        - name: "🛰️ Monitoreo satelital"
+        - name: "♻️ Descarbonización"
     design:
       # Section background color (CSS class)
       css_class: "bg-green-100 dark:bg-green-900"
@@ -43,20 +43,20 @@ sections:
     id: solutions
     content:
       items:
-        - title: Our Technologies
+        - title: Nuestras Tecnologías
           id: solutions 
-          text: 'A modular platform to build trust across complex supply chains:'
+          text: 'Una plataforma modular para generar confianza en cadenas de suministro complejas:'
           feature_icon: check
           features:
-            - Real-time carbon accounting
-            - Blockchain traceability & digital product passports
-            - Multispectral and geospatial satellite monitoring
-            - AI modeling for emission reduction
-            - Physical & digital material fingerprinting
+            - Contabilidad de carbono en tiempo real
+            - Trazabilidad por blockchain & pasaportes digitales de productos
+            - Monitoreo satelital multiespectral y geoespacial
+            - Modelado de IA para reducción de emisiones
+            - Huellas físicas y digitales de materiales
            # Upload image to `assets/media/` and reference the filename here
           image: technology.jpg
           button:
-            text: Learn more
+            text: Saber más
             url: /blog/
     design:
       # Section background color (CSS class)
@@ -69,13 +69,13 @@ sections:
     id: applications 
     content:
       items:
-        - title: Application Areas
-          text: "Our solutions are designed for high-value, high-risk supply chains:"
+        - title: Ámbitos de Aplicación
+          text: "Nuestras soluciones están diseñadas para cadenas de suministro de alto valor y alto riesgo:"
           feature_icon: check
           features:
-            - "🔋 Battery minerals (lithium, cobalt, nickel…)"
-            - "🪙 Precious metals (gold, platinum, silver…)"
-            - "🌸 Perfumery & luxury products – traceability and sustainability of rare ingredients"
+            - "🔋 Minerales para baterías (litio, cobalto, níquel…)"
+            - "🪙 Metales preciosos (oro, platino, plata…)"
+            - "🌸 Perfumería & productos de lujo – trazabilidad y sostenibilidad de ingredientes raros"
           # Upload image to `assets/media/` and reference the filename here
           image: luxury.png
           # button:
@@ -88,22 +88,15 @@ sections:
       #   color: "rgb(176, 218, 209)"
       spacing:
         padding: ['0px', '0', '0px', '0']
-  - block: hero
+  - block: cta-card
     id: vision 
     content:
-      title: "We develop operational solutions tailored to each industry, need, and geography."
-      text: "Natixar's approach is based on data automation, system interoperability, transparency, and regulatory foresight."
+      title: "Desarrollamos soluciones operativas adaptadas a cada sector, necesidad y geografía."
+      text: "El enfoque de Natixar se basa en la automatización de datos, interoperabilidad de sistemas, transparencia y previsión regulatoria."
       # button:
       #   text: Get Started
       #   url: https://hugoblox.com/templates/
     design:
-      background:
-        color: "navy"
-        image:
-          # Add your image background to `assets/media/`.
-          filename: bg-triangles.svg
-          filters:
-            brightness: 0.7
       card:
         # Card background color (CSS class)
         css_class: "bg-primary-700"

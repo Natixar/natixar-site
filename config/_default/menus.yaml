@@ -3,33 +3,43 @@
 #   The `weight` parameter defines the order that the links will appear in.
 
 main:
-  - name: "Home"
+  - identifier: "home"
+    name: "Home"
     url: "/#top"
     weight: 1
-  - name: "Our Technologies"
+  - identifier: "solutions"
+    name: "Our Technologies"
     url: "/#solutions"
     weight: 2
-  - name: "Application Areas"
+  - identifier: "applications"
+    name: "Application Areas"
     url: "/#applications"
     weight: 3
-  - name: "Field-Based Insights"
+  - identifier: "vision"
+    name: "Field-Based Insights"
     url: "/#vision"
     weight: 4
-  # - name: "About"
+  # - identifier: "about"
+  #   name: "About"
   #   url: "/about/"
   #   weight: 5
-  - name: "Contact"
+  - identifier: "contact"
+    name: "Contact"
     url: "/contact/"
     weight: 6
-  - name: "Blog"
+  - identifier: "blog"
+    name: "Blog"
     url: "/blog/"
     weight: 7
-  # - name: "Privacy Policy"
+  # - identifier: "privacy"
+  #   name: "Privacy Policy"
   #   url: "/privacy-policy/"
   #   weight: 8
-  # - name: "Terms of Service"
+  # - identifier: "terms"
+  #   name: "Terms of Service"
   #   url: "/terms-of-service/"
   #   weight: 9
-  # - name: "Sitemap"
+  # - identifier: "sitemap"
+  #   name: "Sitemap"
   #   url: "/sitemap.xml"
   #   weight: 10

@@ -9,121 +9,27 @@ en:
   contentDir: content/en
 
 fr:
-  languageName: Français
-  weight: 1
-  contentDir: content/fr
-  params:
-    description: "Site officiel de Natixar - traçabilité & ESG"
-  menu:
-    main:
-    # Main navigation menu for the French language
-    - name: "Accueil" # Home
-      url: "/#top"
-      weight: 1
-    - name: "Nos Technologies" # Our Technologies
-      url: "/#solutions"
-      weight: 2
-    - name: "Domaines d’Application" # Application Areas
-      url: "/#applications"
-      weight: 3
-    - name: "Vision de Terrain" # Field Vision
-      url: "/#vision"
-      weight: 4
-    - name: "À propos" # About Us
-      url: "/#about"
-      weight: 5
-    - name: "Contact" # Contact Us
-      url: "/contact/"
-      weight: 6
-    - name: "Blog" # Blog
-      url: "/blog/"
-      weight: 7
+   languageName: Français
+   weight: 1
+   contentDir: content/fr
+   params:
+     description: "Site officiel de Natixar - traçabilité & ESG"
 es:
   languageName: Español
   weight: 3
-  contentDir: content/sp
+  contentDir: content/es
   params:
     description: "Sitio oficial de Natixar - trazabilidad & ESG"
-  menu:
-    main:
-    # Main navigation menu for the Spanish language
-      - name: "Inicio" # Home
-        url: "/#top"
-        weight: 1
-      - name: "Nuestras Tecnologías" # Our Technologies
-        url: "/#solutions"
-        weight: 2
-      - name: "Áreas de Aplicación" # Application Areas
-        url: "/#applications"
-        weight: 3
-      - name: "Visión de Campo" # Field Vision
-        url: "/#vision"
-        weight: 4
-      - name: "Acerca de" # About Us
-        url: "/#about"
-        weight: 5
-      - name: "Contacto" # Contact Us
-        url: "/contact/"
-        weight: 6
-      - name: "Blog" # Blog
-        url: "/blog/"
-        weight: 7
+
 pt:
   languageName: Português
   weight: 4
   contentDir: content/pt
   params:
     description: "Site oficial da Natixar - rastreabilidade & ESG"
-  menu:
-    main:
-      # Main navigation menu for the Portuguese language
-      - name: "Início"
-        url: "/#top"
-        weight: 1
-      - name: "Nossas Tecnologias"
-        url: "/#solutions"
-        weight: 2
-      - name: "Áreas de Aplicação"
-        url: "/#applications"
-        weight: 3
-      - name: "Visão de Campo"
-        url: "/#vision"
-        weight: 4
-      - name: "Sobre"
-        url: "/#about"
-        weight: 5
-      - name: "Contato"
-        url: "/contact/"
-        weight: 6
-      - name: "Blog"
-        url: "/blog/"
-        weight: 7
 zh:
   languageName: 中文
   weight: 5
   contentDir: content/zh
   params:
     description: "Natixar官方网站 - 可追溯性和ESG"
-  menu:
-    main:
-      - name: "首页"
-        url: "/#top"
-        weight: 1
-      - name: "我们的技术"
-        url: "/#solutions"
-        weight: 2
-      - name: "应用领域"
-        url: "/#applications"
-        weight: 3
-      - name: "实地视角"
-        url: "/#vision"
-        weight: 4
-      - name: "关于我们"
-        url: "/#about"
-        weight: 5
-      - name: "联系"
-        url: "/contact/"
-        weight: 6
-      - name: "博客"
-        url: "/blog/"
-        weight: 7

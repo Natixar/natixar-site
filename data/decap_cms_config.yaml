@@ -3,7 +3,7 @@ backend:
   repo: Natixar/natixar-site
   branch: main
   use_graphql: true
-  squash_merges: true
+#  squash_merges: true
 media_folder: 'assets/media'
 public_folder: '/media'
 collections:

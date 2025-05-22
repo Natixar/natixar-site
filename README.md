@@ -102,3 +102,136 @@ Peut être inversée horizontalement avec $block.design.background.video.flip.
 ##### Conteneur (container)
 
 - Utilisation conditionnelle d'un conteneur Bootstrap (`<div class="container">`).
+
+
+### Configuration du bloc `contact`
+
+#### Contenu (content)
+
+Ces paramètres définissent les données textuelles et les métadonnées du bloc.
+
+1. **`content.text`**
+
+Texte descriptif affiché au-dessus du formulaire de contact.
+Transformé avec emojify et rendu avec `$page.RenderString`.
+
+2. **`content.autolink`**
+
+Transforme en liens l'adresse e-mail et le numéro de téléphone.
+
+3. **`content.email`**
+
+Adresse e-mail affichée dans la section des coordonnées.
+Peut être automatiquement transformée en lien `mailto:` si `$autolink` est activé.
+
+4. **`content.phone`**
+
+Numéro de téléphone affiché dans la section des coordonnées.
+Peut être automatiquement transformé en lien `tel:` si `$autolink` est activé.
+
+5. **`content.address`**
+
+Adresse physique, composée des sous-paramètres suivants :
+- street : Rue.
+- city : Ville.
+- region : Région.
+- postcode : Code postal.
+- country : Pays.
+Formatée via le partiel functions/get_address.
+
+6. **`content.directions`**
+
+Instructions ou directions supplémentaires, affichées sous forme de texte.
+
+7. **`content.office_hours`**
+
+Horaires d'ouverture.
+
+Peut être une chaîne ou une liste (affichée avec des sauts de ligne).
+
+8. **`content.appointment_url`**
+
+URL pour prendre un rendez-vous.
+
+Affichée sous forme de lien avec le texte par défaut "Book an appointment".
+
+Il est possible de modifier et de traduire ce texte avec l'identifiant i18n `book_appointment`.
+
+9. **`content.contact_links`**
+
+Liste de liens supplémentaires avec des icônes. 
+
+Chaque lien peut inclure :
+- icon_pack : Pack d'icônes (ex. fas, fab).
+- icon : Nom de l'icône (ex. envelope, phone).
+- link : URL du lien.
+- name : Texte du lien.
+
+
+#### Formulaire (content.form)
+
+Ces paramètres configurent le formulaire de contact.
+
+1. **`content.form.provider`**
+
+Fournisseur du formulaire. 
+
+Valeurs possibles :
+- netlify : Utilise Netlify Forms.
+- formspree : Utilise Formspree.
+
+2. **`content.form.netlify`**
+
+Paramètres spécifiques à Netlify Forms :
+- captcha : Active/désactive le reCAPTCHA (par défaut : true).
+- success_url : URL de redirection après soumission réussie.
+
+3. **`content.form.formspree`**
+
+Paramètres spécifiques à Formspree :
+- id : Identifiant du formulaire Formspree (obligatoire).
+- captcha : Active/désactive le reCAPTCHA (par défaut : false).
+- captcha_key : Clé API pour le reCAPTCHA (obligatoire si captcha est activé).
+
+4. **`content.form.netlify.attachments`**
+
+Active/désactive la possibilité de joindre des fichiers au formulaire.
+
+#### Design (design)
+
+Ces paramètres définissent l'apparence et la mise en page du bloc.
+
+1. **`design.columns`**
+   
+Nombre de colonnes pour le formulaire. Valeurs possibles :
+- 1 : Une seule colonne.
+- 2 : Deux colonnes (par défaut).
+
+#### Carte (features.map)
+
+Ces paramètres permettent d'afficher une carte si activé dans la configuration globale.
+
+1. **`features.map.provider`**
+
+Fournisseur de la carte (ex. Google Maps).
+
+2. **`features.map.api_key`**
+
+Clé API pour le fournisseur de la carte.
+
+3. **`features.map.zoom`**
+
+Niveau de zoom de la carte (par défaut : 15).
+
+4. **`content.coordinates`**
+
+Coordonnées géographiques pour la carte :
+- latitude : Latitude.
+- longitude : Longitude.
+
+#### Résumé des validations
+
+Si formspree est utilisé comme fournisseur, les paramètres suivants sont obligatoires :
+- `content.form.formspree.id` : Identifiant du formulaire.
+- `content.form.formspree.captcha_key` : Clé API reCAPTCHA (si captcha est activé).
+Si des fichiers sont joints au formulaire, Netlify doit être utilisé comme fournisseur.

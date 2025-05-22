@@ -1,0 +1,161 @@
+{{/* Hugo Blox: Contact */}}
+{{/* Documentation: https://hugoblox.com/blocks/ */}}
+{{/* License: https://github.com/HugoBlox/hugo-blox-builder/blob/main/LICENSE.md */}}
+
+{{/* Initialise */}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $autolink := default true $block.content.autolink }}
+{{ $data := $block.content }}
+
+{{ $form_provider := lower $block.content.form.provider | default "" }}
+
+{{ $use_netlify_form := eq $form_provider "netlify" }}
+{{ $use_formspree_form := eq $form_provider "formspree" }}
+{{ $use_form := or $use_netlify_form $use_formspree_form }}
+
+{{ $use_netlify_captcha := $block.content.form.netlify.captcha | default true }}
+{{ $use_formspree_captcha := $block.content.form.formspree.captcha | default false }}
+
+{{ $columns := $block.design.columns | default "2" }}
+
+{{ if and $use_formspree_form $use_formspree_captcha }}
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+{{ end }}
+
+{{- /* Formulaire de contact */ -}}
+<div class='w-full {{if eq $columns "2"}}lg:w-8/12{{end}} mx-auto' style="max-width: 50vw;">
+    {{ with $block.content.text }}<p>{{ . | emojify | $page.RenderString }}</p>{{ end }}
+  
+    {{ if $use_form }}
+  
+      {{ $post_action := "" }}
+      {{ if $use_netlify_form }}
+        {{ $post_action = "netlify" }}
+      {{ else if $use_formspree_form }}
+        {{ if not $block.content.form.formspree.id }}
+          {{ errorf "You have chosen to use Formspree as the provider for the contact form. Please set your Formspree Form ID in the Contact widget or disable the form.\nDocumentation: https://docs.hugoblox.com/widget/contact/" }}
+        {{ end }}
+        {{ if and $use_formspree_captcha (not $block.content.form.formspree.captcha_key) }}
+          {{ errorf "You have chosen to use reCAPTCHA for Formspree. Please set your Formspree CAPTCHA KEY in the Contact widget or disable reCAPTCHA.\nDocumentation: https://help.formspree.io/hc/en-us/articles/360022811154" }}
+        {{ end }}
+        {{ $post_action = printf "action=\"https://formspree.io/f/%s\"" $block.content.form.formspree.id }}
+      {{ end }}
+  
+    <div class="mb-4">  
+        {{ if eq $form_provider "netlify" }}
+        <form name="contact" method="POST" class="space-y-4" {{ $post_action | safeHTMLAttr }} {{ if $use_netlify_form }}netlify-honeypot="bot-field"{{ end }} {{ if $use_netlify_captcha }}data-netlify-recaptcha="true"{{ end }} {{ with $block.content.form.netlify.success_url }}action="{{ . | relLangURL }}"{{ end }}>
+            {{/* Champ caché requis pour Netlify (nom du formulaire) */}}
+            <input type="hidden" name="form-name" value="contact">
+            {{/* Champ honeypot anti-spam (ne sera pas visible pour les vrais utilisateurs) */}}
+            <p hidden>
+                <label>Do not fill :<input type="text" name="bot-field"></label>
+            </p>
+
+            {{/* Champ Nom */}}
+            <div class="flex flex-row flex-wrap items-center gap-x-2">
+                <label for="contact-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">{{ or (T "contact_name") "Name" | safeHTML }}</label>
+                <input id="contact-name" name="name" type="text" required 
+                             class="block w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-gray-900 text-sm placeholder-gray-500 
+                                            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                             placeholder='{{ or (T "contact_name_placeholder") "Your name" | safeHTML }}'>
+            </div>
+
+            {{/* Champ Email */}}
+            <div class="flex flex-row flex-wrap items-center gap-x-2">
+                <label for="contact-email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">{{ or (T "contact_email") "Email" | safeHTML }}</label>
+                <input id="contact-email" name="email" type="email" required 
+                             class="block w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-gray-900 text-sm placeholder-gray-500 
+                                            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                             placeholder='{{ or (T "contact_email_placeholder") "Your e-mail address" | safeHTML }}'>
+            </div>
+
+            {{/* Champ Message */}}
+            <div class="flex flex-row flex-wrap items-center gap-x-2">
+                <label for="contact-message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Message</label>
+                <textarea id="contact-message" name="message" rows="5" required 
+                                    class="block w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-gray-900 text-sm placeholder-gray-500 
+                                                 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                    placeholder='{{ or (T "contact_message_placeholder") "Your message" | safeHTML }}'></textarea>
+            </div>
+
+            {{/* Captcha */}}
+            {{ if and $use_netlify_form $use_netlify_captcha }}
+            <div class="flex flex-row flex-wrap items-center gap-x-2" data-netlify-recaptcha="true"></div>
+            {{ else if and $use_formspree_form $use_formspree_captcha }}
+            <div class="g-recaptcha" data-sitekey="{{ $block.content.form.formspree.captcha_key }}"></div>
+            {{ end }}
+
+            {{/* Bouton d'envoi */}}
+            <div>
+                <button type="submit"
+                class="inline-block w-full md:w-auto px-5 py-2.5 bg-blue-600 text-gray-900 dark:text-gray-100 text-sm font-semibold rounded-md
+                       shadow hover:bg-blue-700 hover:shadow-lg hover:-translate-y-px
+                       focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+                       transition duration-150 ease-in-out">
+                    {{ or (T "contact_send" ) "Send" | safeHTML }}
+                </button>
+            </div>
+
+            {{/* reCAPTCHA de Netlify (optionnel) */}}
+            {{ with $block.content.form.netlify.captcha }}
+            {{ if . }}<div data-netlify-recaptcha="true"></div>{{ end }}
+            {{ end }}
+        </form>
+        {{ else if eq $form_provider "formspree" }}
+        {{/* Formspree: on utilise l'ID du formulaire Formspree */}}
+        {{ $formID := $block.content.form.formspree.id | default "" -}}
+        <form name="contact" method="POST" action="{{ if $formID }}https://formspree.io/f/{{ $formID }}{{ end }}" class="space-y-4">
+            {{/* Champ caché anti-spam pour Formspree (_gotcha) */}}
+            <input type="text" name="_gotcha" hidden>
+
+            {{/* Champ Nom */}}
+            <div>
+                <label for="contact-name" class="block mb-2 text-sm font-medium text-gray-700">Nom</label>
+                <input id="contact-name" name="name" type="text" required 
+                             class="block w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-gray-900 text-sm placeholder-gray-500 
+                                            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                             placeholder="Votre nom">
+            </div>
+
+            {{/* Champ Email */}}
+            <div>
+                <label for="contact-email" class="block mb-2 text-sm font-medium text-gray-700">Email</label>
+                <input id="contact-email" name="email" type="email" required 
+                             class="block w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-gray-900 text-sm placeholder-gray-500 
+                                            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                             placeholder="Votre email">
+            </div>
+
+            {{/* Champ Sujet */}}
+            <div>
+                <label for="contact-subject" class="block mb-2 text-sm font-medium text-gray-700">Sujet</label>
+                <input id="contact-subject" name="subject" type="text" required 
+                             class="block w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-gray-900 text-sm placeholder-gray-500 
+                                            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                             placeholder="Objet de votre message">
+            </div>
+
+            {{/* Champ Message */}}
+            <div>
+                <label for="contact-message" class="block mb-2 text-sm font-medium text-gray-700">Message</label>
+                <textarea id="contact-message" name="message" rows="5" required 
+                                    class="block w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-gray-900 text-sm placeholder-gray-500 
+                                                 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                    placeholder="Votre message..."></textarea>
+            </div>
+
+            {{/* Bouton d'envoi */}}
+            <div>
+                <button type="submit" class="inline-block w-full md:w-auto px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-md 
+                                                                         hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    Envoyer
+                </button>
+            </div>
+        </form>
+        {{ end }}
+    </div>
+</div>
+{{ else }}
+  {{/* Aucune configuration de formulaire - on pourra gérer l’affichage d’un lien email par exemple */}}
+{{ end }}

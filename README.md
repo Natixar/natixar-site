@@ -54,6 +54,7 @@ Peut être inversée horizontalement avec $block.design.background.video.flip.
   - size : Taille de l'image (actual, cover, contain).
   - position : Position de l'image (CSS background-position).
   - filters.brightness : Filtre de luminosité (CSS filter: brightness).
+  - parallax : l'image ne défile pas avec le bloc en scrollant, mais elle est recouverte par le bloc suivant (vrai par défaut).
 
 #### Espacement (spacing)
 

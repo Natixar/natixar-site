@@ -11,7 +11,7 @@ tags:
 image:
   caption: "Bye! Bye! Wix! Image credit: Natixar / S. Cranga"
 ---
-# 🚧 Building Our Site: From Confusion to Creation (and a Few Laughs Along the Way)
+## 🚧 Building Our Site: From Confusion to Creation (and a Few Laughs Along the Way)
 
 Welcome to the backstage tour of how we built a multilingual, dynamic, and modern website—without losing our minds! This is the real-life story of how a state-of-the-art web presence is now within reach, thanks to Hugo, Hugo Blox, Tailwind CSS, Decap CMS, and a little help from AI.
 
@@ -36,10 +36,6 @@ When in doubt, we debugged with `{{ printf "Lang: %s" .Lang }}` and let AI doubl
 {{ end }}
 ```
 
-
-
-
-
 ## 🎨 Step 3: Make It Pretty—Responsively
 
 Who knew layouts could be fun? We replaced row and col-12 col-lg-8 from Bootstrap with Tailwind CSS and—when needed—a dash of custom vanilla CSS for those “no-utility-class-for-this” moments. Our pages now reshape themselves gracefully, whether viewed on a smartphone or a cinema screen.
@@ -51,10 +47,6 @@ If Tailwind didn’t have the class we wanted, we just added a <style> block usi
   .responsive-grid { flex-direction: column; }
 }
 ```
-
-
-
-
 
 ## 🤖 Step 4: Let AI Do the Heavy Lifting
 

@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: git-gateway
   repo: Natixar/natixar-site
   branch: main
   use_graphql: true

@@ -39,7 +39,7 @@ header:
     logo:
       text: ""
       # Logo filename in `assets/media/` folder
-      filename: "logo_natixxar_gray.png"
+      filename: "logo-no-margin.svg"
     button:
       enable: false
       text: "Get Started"

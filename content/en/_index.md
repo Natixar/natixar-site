@@ -97,6 +97,7 @@ sections:
       #   text: Get Started
       #   url: https://hugoblox.com/templates/
     design:
+      css_style: "color: #ff0000;"
       background:
         color: "navy"
         image:
@@ -104,10 +105,10 @@ sections:
           filename: bg-triangles.svg
           filters:
             brightness: 0.7
-      card:
-        # Card background color (CSS class)
-        css_class: "bg-primary-700"
-        css_style: ""
+      # card:
+      #   # Card background color (CSS class)
+      #   css_class: "bg-primary-700"
+      #   css_style: ""
   # - block: testimonials
   #   id: about
   #   content:

@@ -1,7 +1,10 @@
 ---
-#title: Contact
+title: Contact
 date: 2025-05-20
 type: landing
+
+# Natixar's address in France
+address_locale: fr-fr
 
 design:
   # Default section spacing
@@ -14,7 +17,7 @@ header:
     align: "center"
     fixed_to_top: true
     logo:
-      text: ""
+      text: "The natixar logo"
       # Logo filename in `assets/media/` folder
       filename: "logo_natixxar_black.png"
     button:
@@ -32,35 +35,39 @@ sections:
     content:
       title: Contact us
       subtitle: ''
-      text: ''
+      text: 'natixar'
+      image: 
+        filename: carte_marseille.png
+        caption: map of Marseilles
       # Contact details - edit or remove options as needed
-      email: test@example.org
-      phone: 888 888 88 88
+      email: info@natixar.com
+      # phone: 888 888 88 88
       appointment_url: 'https://calendly.com'
       address:
-        street: 450 Serra Mall
-        city: Stanford
-        region: CA
-        postcode: '94305'
-        country: United States
-        country_code: US
-      directions: Enter Building 1 and take the stairs to Office 200 on Floor 2
+        street: 31 rue Raphael
+        city: Marseille
+        region: 
+        postcode: '13008'
+        country: France
+        country_code: FR
+      # directions: 
       office_hours:
-        - 'Monday 10:00 to 13:00'
-        - 'Wednesday 09:00 to 10:00'
-      contact_links:
-        - icon: twitter
-          icon_pack: fab
-          name: DM Me
-          link: 'https://twitter.com/Twitter'
-        - icon: skype
-          icon_pack: fab
-          name: Skype Me
-          link: 'skype:echo123?call'
-        - icon: video
-          icon_pack: fas
-          name: Zoom Me
-          link: 'https://zoom.com'
+        - 'Mon. - Fri. 08:00 to 20:00 CET'
+        - 'Saturday 09:00 to 21:00 CET'
+        - 'Closed on Sundays'
+      # contact_links:
+      #   - icon: twitter
+      #     icon_pack: fab
+      #     name: DM Me
+      #     link: 'https://twitter.com/Twitter'
+      #   - icon: skype
+      #     icon_pack: fab
+      #     name: Skype Me
+      #     link: 'skype:echo123?call'
+      #   - icon: video
+      #     icon_pack: fas
+      #     name: Zoom Me
+      #     link: 'https://zoom.com'
       # Automatically link email and phone or display them just as text?
       autolink: true
       # Choose an email form provider (netlify/formspree)
@@ -79,10 +86,20 @@ sections:
         latitude: '37.4275'
         longitude: '-122.1697'
     design:
-      # Choose how many columns the section has. Valid values: '1' or '2'.
+      # Choose how many columns the section has. Valid values: '1'.
       columns: '1'
+      # Choose if you want padding around the customized message
+      no_padding: true
+      # Background
+      background:
+        color: #2020A040
+        # image:
+        #   # Add your image background to `assets/media/`.
+        #   filename: bg-triangles.svg
+        #   filters:
+        #     brightness: 0.2
+        #     transparency: 0.5
 ---
-<!-- 
 Check out my shortcode:
 
-{{% github_rodrigoalcarazdelaosa_lottie src="https://assets5.lottiefiles.com/packages/lf20_q4nxakl0.json" width="100%" %}} -->
+{{% github_rodrigoalcarazdelaosa_lottie src="https://assets5.lottiefiles.com/packages/lf20_q4nxakl0.json" width="100%" %}}

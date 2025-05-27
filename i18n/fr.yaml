@@ -1,7 +1,18 @@
 home: "Accueil"
 solutions: "Nos Technologies"
-application: "Domaines d’Application"
+applications: "Domaines d’Application"
 vision: "Vision de Terrain"
 about: "À propos"
 contact: "Contact"
 blog: "Blog"
+contact_address: "Adresse"
+contact_phone: "Téléphone"
+contact_email: "Email"
+contact_social: "Réseaux Sociaux"
+natixar: |
+  Natixar est une startup technologique née globale, portée par une vision scientifique, responsable et orientée impact.
+  
+  Notre équipe internationale est engagée pour une industrie traçable, sobre et conforme aux nouveaux standards mondiaux.
+  
+  **Discutons ensemble!**
+contact_us: "Contactez-nous!"

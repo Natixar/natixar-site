@@ -5,3 +5,13 @@ vision: "实地视角"
 about: "关于我们"
 contact: "联系"
 blog: "博客"
+contact_address: "地址"
+contact_address_placeholder: 您的地址
+contact_phone: "电话"
+contact_email: "电子邮件"
+contact_social: "社交媒体"
+contact_message: "留言"
+natixar: |
+  Natixar 是一家天生全球化的科技初创公司，以科学、责任和影响为导向的愿景为驱动力。
+  我们的国际团队致力于打造可追溯、低碳并符合全球新标准的产业。**让我们一起交流。**
+contact_us: "联系我们！"

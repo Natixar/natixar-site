@@ -23,11 +23,128 @@
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 {{ end }}
 
-{{- /* Formulaire de contact */ -}}
-<div class='w-full {{if eq $columns "2"}}lg:w-8/12{{end}} mx-auto' style="max-width: 50vw;">
-    {{ with $block.content.text }}<p>{{ . | emojify | $page.RenderString }}</p>{{ end }}
+<div class="mx-auto max-w-2xl {{if not ($block.design.no_padding | default true) }}py-32 sm:py-48 lg:py-56{{end}}">
+  <div class="text-center">
+  {{ with $block.content.text }}{{ or (T .) "" | markdownify}}{{ end}}
+  <h1 class="text-3xl mt-4">{{ or (T "contact_us") "Contact Us!" | safeHTML }}</h1>
+  </div>
+</div>
+
+<style>
+  .responsive-grid {
+    display: flex;
+    gap: 0px;
+  }
+  .col {
+    border-radius: 1em;
+    padding: 1.5rem;
+    box-shadow: 0 1px 6px #0001;
+    margin: 12px;
+  }
+  .col-a {
+    background: #80808040; /* Light gray overlay */
+  }
+  .col-b {
+    background: #80808040; /* Light gray overlay */
+  }
+  .col-c {
+    background: #80808040; /* Light gray overlay */
+  }
+  .col-a.img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Mobile/tablette : stacked, hide image */
+  @media (max-width: 575px) {
+    .responsive-grid {
+      flex-direction: column;
+    }
+    .col-a, .col-b, .col-c { width: 100%;}
+    .col-a > img {
+      display: none; /* Hide image on mobile */
+    }
+  }
   
-    {{ if $use_form }}
+  /* Large breakpoint : ≥ 576px et <1200px — Logo above, then form and info side-by-side */
+  @media (min-width: 576px) and (max-width: 1199px) {
+    .outer { flex-direction: column; }
+    .inner { flex-direction: row;}
+    .col-a { width: 100%; }
+    .col-b, .col-c { display: inline-block; vertical-align: top; }
+    .row-bc {
+      display: flex;
+    }
+    .col-b { width: 66.666%; }
+    .col-c { width: 33.333%; }
+  }
+  
+  /* Extra large breakpoint : ≥ 1200px — 3 side-by-side columns */
+  @media (min-width: 1200px) {
+    .responsive-grid {
+      flex-direction: row;
+    }
+    .row-bc {
+      display: flex;
+      flex: 1 1 0%;
+      width: 100%;   
+    }
+    .col-a { width: 25%; }
+    .col-b { width: 66%; }
+    .col-c { width: 33%; }
+  }
+</style>
+  
+<div class="responsive-grid outer">
+  <div class="col col-a">
+      <!-- Brand -->
+      <a class="navbar-brand" href="{{ site.Home.RelPermalink }}" title="{{ site.Title }}">
+        {{- $logo_filename := site.Params.header.navbar.logo.filename -}}
+        {{ with $logo_filename }}
+          {{- $logo:= resources.Get (path.Join "media" $logo_filename) -}}
+          {{ with $logo }}
+            {{ $logoExt := path.Ext . }}
+            {{ if eq $logoExt `.svg` }}
+              {{- $logo.Content | safeHTML -}}
+            {{else}}
+              {{ $logo_img := ($logo.Process "Resize x36 webp") }}
+              <img
+                fetchpriority="high"
+                decoding="async"
+                class=""
+                width="{{ $logo_img.Width }}"
+                height="{{ $logo_img.Height }}"
+                src="{{ $logo_img.RelPermalink }}"
+                alt="{{ site.Title }}" />
+            {{end}}
+          {{ else }}
+            {{ warnf "Logo `%s` not found in `assets/media/` folder" $logo_filename }}
+          {{end}}
+        {{ end }}
+        {{ with site.Params.header.navbar.logo.text }}{{.}}{{end}}
+      </a>
+      {{- $image_filename := $block.content.image.filename -}}
+      {{ with $image_filename }}
+        {{- $image := resources.Get (path.Join "media" $image_filename) -}}
+        {{- $imageExt := path.Ext . -}}
+        {{ if eq $imageExt `.svg` }}
+          {{- $image.Content | safeHTML -}}
+        {{else}}
+          {{ $image_img := ($image.Process "Resize x260 webp") }}
+          <img
+            fetchpriority="high"
+            decoding="async"
+            style="justify-self: center;"
+            src="{{ $image_img.RelPermalink }}"
+            {{ with $block.content.image.caption }}alt="{{ . | safeHTMLAttr  }}"{{ end }} />
+        {{end}}
+      {{ end }}
+  </div>
+  <!-- div with form and address -->
+  <div class="row-bc responsive-grid inner">
+    {{- /* Formulaire de contact */ -}}
+    <div class="col col-b">
+      {{ if $use_form }}
   
       {{ $post_action := "" }}
       {{ if $use_netlify_form }}
@@ -42,7 +159,7 @@
         {{ $post_action = printf "action=\"https://formspree.io/f/%s\"" $block.content.form.formspree.id }}
       {{ end }}
   
-    <div class="mb-4">  
+      <div class="mb-4">  
         {{ if eq $form_provider "netlify" }}
         <form name="contact" method="POST" class="space-y-4" {{ $post_action | safeHTMLAttr }} {{ if $use_netlify_form }}netlify-honeypot="bot-field"{{ end }} {{ if $use_netlify_captcha }}data-netlify-recaptcha="true"{{ end }} {{ with $block.content.form.netlify.success_url }}action="{{ . | relLangURL }}"{{ end }}>
             {{/* Champ caché requis pour Netlify (nom du formulaire) */}}
@@ -65,7 +182,7 @@
             {{/* Champ Email */}}
             <div class="flex flex-row flex-wrap items-center gap-x-2">
                 <label for="contact-email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">{{ or (T "contact_email") "Email" | safeHTML }}</label>
-                <input id="contact-email" name="email" type="email" required 
+                <input id="contact-email" name="e-mail" type="email" required 
                              class="block w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-gray-900 text-sm placeholder-gray-500 
                                             focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                              placeholder='{{ or (T "contact_email_placeholder") "Your e-mail address" | safeHTML }}'>
@@ -73,7 +190,7 @@
 
             {{/* Champ Message */}}
             <div class="flex flex-row flex-wrap items-center gap-x-2">
-                <label for="contact-message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Message</label>
+                <label for="contact-message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">{{ or (T "contact_message") "Message" | safeHTML }}</label>
                 <textarea id="contact-message" name="message" rows="5" required 
                                     class="block w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-gray-900 text-sm placeholder-gray-500 
                                                  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -88,10 +205,10 @@
             {{ end }}
 
             {{/* Bouton d'envoi */}}
-            <div>
+            <div class="mt-4">
                 <button type="submit"
-                class="inline-block w-full md:w-auto px-5 py-2.5 bg-blue-600 text-gray-900 dark:text-gray-100 text-sm font-semibold rounded-md
-                       shadow hover:bg-blue-700 hover:shadow-lg hover:-translate-y-px
+                class="inline-block w-full md:w-auto px-5 py-2.5 bg-primary text-gray-900 dark:text-gray-100 text-sm font-semibold rounded-md
+                       shadow hover:bg-green-900 hover:shadow-lg hover:-translate-y-px
                        focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
                        transition duration-150 ease-in-out">
                     {{ or (T "contact_send" ) "Send" | safeHTML }}
@@ -104,59 +221,53 @@
             {{ end }}
         </form>
         {{ else if eq $form_provider "formspree" }}
-        {{/* Formspree: on utilise l'ID du formulaire Formspree */}}
-        {{ $formID := $block.content.form.formspree.id | default "" -}}
-        <form name="contact" method="POST" action="{{ if $formID }}https://formspree.io/f/{{ $formID }}{{ end }}" class="space-y-4">
-            {{/* Champ caché anti-spam pour Formspree (_gotcha) */}}
-            <input type="text" name="_gotcha" hidden>
-
-            {{/* Champ Nom */}}
-            <div>
-                <label for="contact-name" class="block mb-2 text-sm font-medium text-gray-700">Nom</label>
-                <input id="contact-name" name="name" type="text" required 
-                             class="block w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-gray-900 text-sm placeholder-gray-500 
-                                            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                             placeholder="Votre nom">
-            </div>
-
-            {{/* Champ Email */}}
-            <div>
-                <label for="contact-email" class="block mb-2 text-sm font-medium text-gray-700">Email</label>
-                <input id="contact-email" name="email" type="email" required 
-                             class="block w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-gray-900 text-sm placeholder-gray-500 
-                                            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                             placeholder="Votre email">
-            </div>
-
-            {{/* Champ Sujet */}}
-            <div>
-                <label for="contact-subject" class="block mb-2 text-sm font-medium text-gray-700">Sujet</label>
-                <input id="contact-subject" name="subject" type="text" required 
-                             class="block w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-gray-900 text-sm placeholder-gray-500 
-                                            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                             placeholder="Objet de votre message">
-            </div>
-
-            {{/* Champ Message */}}
-            <div>
-                <label for="contact-message" class="block mb-2 text-sm font-medium text-gray-700">Message</label>
-                <textarea id="contact-message" name="message" rows="5" required 
-                                    class="block w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-gray-900 text-sm placeholder-gray-500 
-                                                 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                    placeholder="Votre message..."></textarea>
-            </div>
-
-            {{/* Bouton d'envoi */}}
-            <div>
-                <button type="submit" class="inline-block w-full md:w-auto px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-md 
-                                                                         hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    Envoyer
-                </button>
-            </div>
-        </form>
+        Formspree form provider is not implemented yet.
         {{ end }}
+      </div>
+  {{ end }}
     </div>
+    <div class="col col-c">
+      <ul class="fa-ul">
+        {{/* Address */}}
+        {{ $addr_formatted := "" }}
+        {{ if $data.address.street | or $data.address.city | or $data.address.region | or $data.address.postcode | or $data.address.country }}
+        <h1 class="text-gray-900 dark:text-gray-100">{{ or (T "contact_address") "Address" | safeHTML }}</h1>
+        {{ $addr_formatted = partial "functions/get_address" (dict "root" . "address" $data.address) }}
+          <li>
+            <i class="fa-li fas fa-map-marker fa-2x" aria-hidden="true"></i>
+            <span id="person-address">{{$addr_formatted}}</span>
+          </li>
+        {{ end }}
+        {{/* Directions */}}
+        {{ with $data.directions }}
+        <li class="mt-3">
+          <i class="fa-li fas fa-compass fa-2x" aria-hidden="true"></i>
+          <span>{{ . | markdownify | emojify }}</span>
+        </li>
+        {{ end }}
+
+        {{ with $data.office_hours }}
+        <li class="mt-3">
+          <i class="fa-li fas fa-clock fa-2x" aria-hidden="true"></i>
+          <span>
+            {{- if not (reflect.IsSlice .)}}{{/* Support legacy string format. */}}
+              {{- . | markdownify | emojify -}}
+            {{else}}
+              {{- delimit . "<br>" | markdownify | emojify -}}
+            {{end -}}
+          </span>
+        </li>
+        {{ end }}
+
+        {{ if $data.email }}
+        <h1 class="text-gray-900 dark:text-gray-100 mt-4">{{ or (T "contact_email") "E-mail" | safeHTML }}</h1>
+        {{ end }}    
+        <li>
+          <i class="fa-li fas fa-map-marker fa-2x" aria-hidden="true"></i>
+          <span id="person-email">{{ $data.email | safeHTML }}</span>
+        </li>
+    </ul>
+    </div>
+  </div>
 </div>
-{{ else }}
-  {{/* Aucune configuration de formulaire - on pourra gérer l’affichage d’un lien email par exemple */}}
-{{ end }}
+  

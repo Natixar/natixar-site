@@ -59,5 +59,6 @@ footer:
 
 # Localization
 locale:
-  date_format: 'Jan 2, 2006'
-  time_format: '3:04 PM'
+  date_format: '2 January 2006'
+  time_format: '23:04'
+  address_format: 'fr-fr'  # Use 'fr-fr' for French format

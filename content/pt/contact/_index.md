@@ -10,25 +10,6 @@ design:
   # Default section spacing
   spacing: "2rem"
 
-header:
-  navbar:
-    enable: true
-    blox: "navbar"
-    align: "center"
-    fixed_to_top: true
-    logo:
-      text: "The natixar logo"
-      # Logo filename in `assets/media/` folder
-      filename: "logo_natixxar_black.png"
-    button:
-      enable: false
-      text: "Get Started"
-      url: "https://hugoblox.com/templates/"
-    show_search: true
-    show_theme_chooser: true
-    show_translations: true
-    hide_language_name: false
-
 sections:
   - block: contact
     id: contact

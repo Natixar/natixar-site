@@ -1,4 +1,4 @@
-module github.com/HugoBlox/theme-landing-page
+module github.com/Natixar/natixar-site
 
 go 1.19
 

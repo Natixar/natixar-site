@@ -26,6 +26,9 @@ sections:
           filename: bg-triangles.svg
           filters:
             brightness: 0.5
+        lottie:
+          src: /media/sA9rgjprez.lottie
+          controls: true
   - block: features
     content:
       # title: 

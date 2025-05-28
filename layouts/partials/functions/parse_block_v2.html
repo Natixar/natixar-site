@@ -85,7 +85,8 @@
   {{ if not .src }}
     {{ errorf "Lottie background animation requires a `src` parameter." }}
   {{ else }}
-    {{ $dotlottie := resources.Get "js/dotlottie-player.js" | resources.Minify | resources.Fingerprint }}
+    {{/* $dotlottie := resources.Get "js/dotlottie-player.js" | resources.Minify | resources.Fingerprint */}}
+    {{ $dotlottie := resources.Get "js/lottie.min.js" | resources.Fingerprint }}
     <script type="module" src="{{ $dotlottie.RelPermalink }}" async="true" defer="true"></script>
   {{ end }}
 {{ end  }} 

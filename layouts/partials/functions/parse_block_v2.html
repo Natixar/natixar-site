@@ -80,6 +80,16 @@
   {{ $style_bg = printf "%sfilter: brightness(%s);" $style_bg (string .) }}
 {{ end }}
 
+{{/* Support for Lottie animations */}}
+{{ with $bg.lottie }}
+  {{ if not .src }}
+    {{ errorf "Lottie background animation requires a `src` parameter." }}
+  {{ else }}
+    {{ $dotlottie := resources.Get "js/dotlottie-player.js" | resources.Minify | resources.Fingerprint }}
+    <script type="module" src="{{ $dotlottie.RelPermalink }}"></script>
+  {{ end }}
+{{ end  }} 
+
 {{ with $block.design.spacing.padding }}
   {{ $style_pad := printf "padding: %s;" (delimit . " ") }}
   {{ $style = print $style $style_pad }}
@@ -141,7 +151,6 @@
     {{/* Note: Lottie animations are not supported in IE11. */}}
     {{/* If you need to support IE11, consider using a static image or video instead. */}}
     {{with $bg.lottie.src}}
-    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
     <dotlottie-player id="lottie-bg-{{$hash_id}}" class="home-section-bg absolute inset-0 w-full h-full pointer-events-none"
       src="{{ . | safeHTMLAttr }}"
       background="transparent"

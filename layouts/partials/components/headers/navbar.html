@@ -56,6 +56,7 @@
         {{ $currentPage := . }}
         {{ range site.Menus.main }}
         {{ $menuURL := .URL | absLangURL }}
+        {{ $description := .Params.Description | default "" }}
         {{ $pageURL:= $currentPage.Permalink | absLangURL }}
         {{ $active := eq $menuURL $pageURL }}
         {{ if .HasChildren }}
@@ -92,6 +93,7 @@
                 {{ if findRE `^http` .URL }}
                 target="_blank" rel="noopener"
                 {{ end }}
+                {{ with $description }}aria-label="{{ . | safeHTMLAttr }}"{{ end }}
                 href="{{$url}}">
                 {{ or (T .Identifier) .Name | safeHTML }}
               </a>
@@ -115,6 +117,7 @@
             {{ if findRE `^http` .URL }}
             target="_blank" rel="noopener"
             {{ end }}
+            {{ with $description }}aria-label="{{ . | safeHTMLAttr }}"{{ end }}
             href="{{$url}}"
           >{{ or (T .Identifier) .Name | safeHTML }}</a
           >

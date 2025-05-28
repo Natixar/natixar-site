@@ -31,6 +31,8 @@ main:
     name: "Blog"
     url: "/blog/"
     weight: 7
+    params:
+      description: "Latest news and insights from our team"
   # - identifier: "privacy"
   #   name: "Privacy Policy"
   #   url: "/privacy-policy/"

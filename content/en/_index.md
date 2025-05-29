@@ -59,8 +59,10 @@ sections:
            # Upload image to `assets/media/` and reference the filename here
           image: technology.jpg
           button:
-            text: Learn more
+            # Text the is too short and vague decreases SEO mark - avoid "Learn more"
+            text: Learn more on our blog
             url: /blog/
+            
     design:
       # Section background color (CSS class)
       #css_class: "bg-gray-100 dark:bg-gray-900"

@@ -81,6 +81,3 @@ sections:
         #     brightness: 0.2
         #     transparency: 0.5
 ---
-Check out my shortcode:
-
-{{% github_rodrigoalcarazdelaosa_lottie src="https://assets5.lottiefiles.com/packages/lf20_q4nxakl0.json" width="100%" %}}

@@ -7,11 +7,44 @@
 
 {{ if $page.Scratch.Get "hasLottie" }}
   <script type="module" src="/js/dotlottie-player.mjs"></script>
-  {{/* Uncomment the following line to use the LottiePlayer from Javascript */}}
+  {{/* Uncomment the following line to do "new LottiePlayer" from Javascript */}}
   {{/*
   <script type="module">
     import { LottiePlayer } from "{{ $dotlottie.RelPermalink }}";
     window.LottiePlayer = LottiePlayer;
   </script>
   */}}
+  <script>
+    function setupLottieLazyStart() {
+      if (!('IntersectionObserver' in window)) return;
+
+      // Find all dotlottie-player elements
+      document.querySelectorAll('dotlottie-player').forEach(function(player) {
+        // AUTOPLAY: play when in view, pause when fully out
+        if (player.hasAttribute('autoplay')) {
+          // Start/pause with viewport
+          let isInView = false;
+          const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+              if (entry.isIntersecting) {
+                player.play && player.play();
+                isInView = true;
+              } else if (isInView) {
+                player.pause && player.pause();
+                if (!player.hasAttribute('loop')) {
+                  player.seek(0); // Reset to start if not looping
+                }
+                isInView = false;
+              }
+            });
+          }, { threshold: 0.1 });
+          observer.observe(player);
+        }
+        // NO AUTOPLAY: show built-in controls (handled by player)
+        // Nothing to do: player exposes controls if present in markup
+      });
+    }
+    document.addEventListener("DOMContentLoaded", setupLottieLazyStart);
+</script>
+
 {{ end }}

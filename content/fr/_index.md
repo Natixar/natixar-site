@@ -109,8 +109,8 @@ sections:
              brightness: 0.7
   - block: markdown
     design:
-       background:
-         lottie:
-           src: media/NATIXAR.lottie
-           loop: false
+      background:
+        lottie:
+          src: /media/NATIXAR.lottie
+          loop: false
 ---

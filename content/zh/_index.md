@@ -26,6 +26,8 @@ sections:
           filename: bg-triangles.svg
           filters:
             brightness: 0.5
+        lottie:
+          src: /media/atom.lottie
   - block: features
     content:
       # title: 
@@ -64,7 +66,7 @@ sections:
       background:
         color: "rgb(132, 164, 180)"
       spacing:
-        padding: ['6rem', '0', '0px', '0']
+        padding: ['2rem', '0', '0px', '0']
   - block: cta-image-left-paragraph
     id: applications 
     content:
@@ -88,7 +90,7 @@ sections:
       #   color: "rgb(176, 218, 209)"
       spacing:
         padding: ['0px', '0', '0px', '0']
-  - block: cta-card
+  - block: hero
     id: vision 
     content:
       title: "我们开发适用于各行业、需求和地理位置的运营解决方案。"
@@ -97,23 +99,18 @@ sections:
       #   text: Get Started
       #   url: https://hugoblox.com/templates/
     design:
-      card:
-        # Card background color (CSS class)
-        css_class: "bg-primary-700"
-        css_style: ""
-  # - block: testimonials
-  #   id: about
-  #   content:
-  #     title: ""
-  #     text: ""
-  #     items:
-  #       - name: "Hugo Smith"
-  #         role: "Marketing Executive at X"
-  #         # Upload image to `assets/media/` and reference the filename here
-  #         image: "testimonial-1.jpg"
-  #         text: "Awesome, so easy to use and saved me so much work with the swappable pre-designed sections!"
-  #   design:
-  #     spacing:
-  #       # Reduce bottom spacing so the testimonial appears vertically centered between sections
-  #       padding: ["6rem", 0, 0, 0]
+       css_style: "color: #ff0000;"
+       background:
+         color: "navy"
+         image:
+           # Add your image background to `assets/media/`.
+           filename: bg-triangles.svg
+           filters:
+             brightness: 0.7
+  - block: markdown
+    design:
+      background:
+        lottie:
+          src: /media/NATIXAR.lottie
+          loop: false
 ---

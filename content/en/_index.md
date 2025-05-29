@@ -117,7 +117,7 @@ sections:
     design:
       background:
         lottie:
-          src: media/NATIXAR.lottie
+          src: /media/NATIXAR.lottie
           loop: false
   # - block: testimonials
   #   id: about

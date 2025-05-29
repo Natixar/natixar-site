@@ -153,8 +153,12 @@
         background="transparent"
         speed="1"
         style="height: 100%"
-        {{ if $bg.lottie.loop | default true }}loop{{end}}
-        {{ if $bg.lottie.autoplay | default true }}autoplay{{end}}
+        {{ if $bg.lottie.loop | default true }}
+          loop
+          {{ if $bg.lottie.autoplay | default true }}autoplay{{end}}
+        {{else}}
+          autoplay
+        {{end}}
         aspect="{{ $bg.lottie.aspect | default "xMidYMid slice" }}">
       </dotlottie-player>
     {{end}}

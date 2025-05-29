@@ -28,7 +28,6 @@ sections:
             brightness: 0.5
         lottie:
           src: /media/atom.lottie
-          controls: true
   - block: features
     content:
       # title: 
@@ -69,7 +68,7 @@ sections:
       background:
         color: "rgb(132, 164, 180)"
       spacing:
-        padding: ['6rem', '0', '0px', '0']
+        padding: ['2rem', '0', '0px', '0']
   - block: cta-image-left-paragraph
     id: applications 
     content:

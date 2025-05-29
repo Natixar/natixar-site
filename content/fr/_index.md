@@ -26,6 +26,8 @@ sections:
           filename: bg-triangles.svg
           filters:
             brightness: 0.5
+        lottie:
+          src: /media/atom.lottie
   - block: features
     content:
       # title: Our Technologies
@@ -56,7 +58,7 @@ sections:
            # Upload image to `assets/media/` and reference the filename here
           image: technology.jpg
           button:
-            text: En savoir plus
+            text: Lire notre blog
             url: /blog/
     design:
       # Section background color (CSS class)
@@ -88,7 +90,7 @@ sections:
       #   color: "rgb(176, 218, 209)"
       spacing:
         padding: ['0px', '0', '0px', '0']
-  - block: cta-card
+  - block: hero
     id: vision 
     content:
       title: "Nous développons des solutions opérationnelles adaptées à chaque secteur, besoin et géographie."
@@ -97,8 +99,18 @@ sections:
       #   text: Get Started
       #   url: https://hugoblox.com/templates/
     design:
-      card:
-        # Card background color (CSS class)
-        css_class: "bg-primary-700"
-        css_style: ""
+       css_style: "color: #ff0000;"
+       background:
+         color: "navy"
+         image:
+           # Add your image background to `assets/media/`.
+           filename: bg-triangles.svg
+           filters:
+             brightness: 0.7
+  - block: markdown
+    design:
+       background:
+         lottie:
+           src: media/NATIXAR.lottie
+           loop: false
 ---

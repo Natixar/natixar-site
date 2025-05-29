@@ -82,14 +82,10 @@
 
 {{/* Support for Lottie animations */}}
 {{ with $bg.lottie }}
-  {{ if not .src }}
-    {{ errorf "Lottie background animation requires a `src` parameter." }}
-  {{ else }}
-    {{/* $dotlottie := resources.Get "js/dotlottie-player.js" | resources.Minify | resources.Fingerprint */}}
-    {{ $dotlottie := resources.Get "js/lottie.min.js" | resources.Fingerprint }}
-    <script type="module" src="{{ $dotlottie.RelPermalink }}" async="true" defer="true"></script>
+  {{ if .src  }}
+    {{ $page.Scratch.Set "hasLottie" true }}
   {{ end }}
-{{ end  }} 
+{{ end }}
 
 {{ with $block.design.spacing.padding }}
   {{ $style_pad := printf "padding: %s;" (delimit . " ") }}
@@ -152,15 +148,15 @@
     {{/* Note: Lottie animations are not supported in IE11. */}}
     {{/* If you need to support IE11, consider using a static image or video instead. */}}
     {{with $bg.lottie.src}}
-    <dotlottie-player id="lottie-bg-{{$hash_id}}" class="home-section-bg absolute inset-0 w-full h-full pointer-events-none"
-      src="{{ . | safeHTMLAttr }}"
-      background="transparent"
-      speed="1"
-      style="height: 100%"
-      loop
-      {{ if $bg.lottie.autoplay | default true }}autoplay{{end}}
-      aspect="{{ $bg.lottie.aspect | default "xMidYMid slice" }}">
-    </dotlottie-player>
+      <dotlottie-player id="lottie-bg-{{$hash_id}}" class="home-section-bg absolute inset-0 w-full h-full pointer-events-none"
+        src="{{ . | safeHTMLAttr }}"
+        background="transparent"
+        speed="1"
+        style="height: 100%"
+        loop
+        {{ if $bg.lottie.autoplay | default true }}autoplay{{end}}
+        aspect="{{ $bg.lottie.aspect | default "xMidYMid slice" }}">
+      </dotlottie-player>
     {{end}}
   </div>
 

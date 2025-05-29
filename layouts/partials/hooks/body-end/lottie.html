@@ -1,0 +1,17 @@
+{{/* Lottie Animation Player Integration
+     Loads the Lottie player script if animations are present on the page
+     Used by adding 'hasLottie' flag to .Scratch
+*/}}
+{{/** Simple implementation - the dotlottie-player is huge compared to a Hugo landing page */}}
+{{ $page := .Page }}
+
+{{ if $page.Scratch.Get "hasLottie" }}
+  <script type="module" src="/js/dotlottie-player.mjs"></script>
+  {{/* Uncomment the following line to use the LottiePlayer from Javascript */}}
+  {{/*
+  <script type="module">
+    import { LottiePlayer } from "{{ $dotlottie.RelPermalink }}";
+    window.LottiePlayer = LottiePlayer;
+  </script>
+  */}}
+{{ end }}

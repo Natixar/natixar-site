@@ -27,7 +27,7 @@ sections:
           filters:
             brightness: 0.5
         lottie:
-          src: /media/sA9rgjprez.lottie
+          src: /media/atom.lottie
           controls: true
   - block: features
     content:
